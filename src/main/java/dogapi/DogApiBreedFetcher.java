@@ -47,9 +47,9 @@ public class DogApiBreedFetcher implements BreedFetcher {
             System.out.println("Is successful: " + response.isSuccessful());
             System.out.println("Body: " + response.body());
 
-//            if (response.body() == null) {
-//                throw new BreedNotFoundException(breed);
-//            }
+            if (response.body() == null) {
+                throw new BreedNotFoundException(breed);
+            }
 
             JSONObject responseBody = new JSONObject(response.body().string());
 
