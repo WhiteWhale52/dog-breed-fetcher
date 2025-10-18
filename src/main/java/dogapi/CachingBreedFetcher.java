@@ -15,14 +15,15 @@ import java.util.*;
 public class CachingBreedFetcher implements BreedFetcher {
     // TODO Task 2: Complete this class
     private int callsMade = 0;
+    private BreedFetcher Fetcher;
     public CachingBreedFetcher(BreedFetcher fetcher) {
-
+        Fetcher = fetcher;
     }
 
     @Override
     public List<String> getSubBreeds(String breed) {
-        // return statement included so that the starter code can compile and run.
-        return new ArrayList<>();
+        callsMade++;
+        return Fetcher.getSubBreeds(breed);
     }
 
     public int getCallsMade() {
